@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<!-- saved from url=(0052)file:///C:/Users/Usr/Desktop/%D0%98%D0%98/index.html -->
+<html lang="ru"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Star Wars Forever</title>
+    <link href="./Star Wars Forever_files/css2" rel="stylesheet">
+    <style>
+        :root {
+            --force-blue: #00d4ff;
+            --sith-red: #ff003c;
+            --main-color: var(--force-blue);
+            --panel-bg: rgba(20, 20, 25, 0.95);
+            --text-gold: #ffe81f;
+        }
+
+        body {
+            background-color: #050507;
+            background-image: url("https://i.redd.it/pa2wq6w65po41.png");
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            color: #e0e0e0;
+            font-family: 'Exo 2', sans-serif;
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        header {
+            border-bottom: 2px solid var(--main-color);
+            padding: 20px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(17, 17, 17, 0.9);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo { font-family: 'Orbitron'; color: var(--text-gold); font-size: 24px; cursor: pointer; text-transform: uppercase; }
+        .logo span { color: var(--main-color); }
+
+        nav button {
+            background: none; border: none; color: var(--main-color);
+            font-family: 'Orbitron'; font-size: 14px; margin-left: 20px;
+            cursor: pointer; transition: 0.3s; text-transform: uppercase;
+        }
+
+        nav button.active { color: white; text-shadow: 0 0 10px var(--main-color); border-bottom: 2px solid white; }
+
+        .admin-panel {
+            position: fixed; bottom: 20px; right: 20px; z-index: 1000;
+            background: #222; padding: 15px; border: 1px solid var(--main-color); border-radius: 10px;
+            width: 220px;
+        }
+
+        .edit-btn {
+            background: var(--main-color); color: black; border: none; padding: 10px 15px;
+            font-weight: bold; cursor: pointer; font-family: 'Orbitron'; width: 100%;
+        }
+
+        #pro-tools { display: none; margin-top: 10px; background: #333; padding: 10px; border-radius: 5px; }
+        .pro-btn { background: #444; color: white; border: 1px solid #666; font-size: 9px; padding: 4px; cursor: pointer; margin: 2px; display: block; width: 95%; }
+
+        .container { max-width: 1200px; margin: 40px auto; padding: 0 20px; min-height: 60vh; }
+        .tab-content { display: none; }
+        .tab-content.active { display: block; animation: fadeIn 0.5s; }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+        .card {
+            background: var(--panel-bg); border: 1px solid #333; padding: 25px;
+            margin-bottom: 30px; border-left: 4px solid var(--main-color); position: relative;
+        }
+
+        .delete-card { position: absolute; top: 10px; right: 10px; color: #ff4757; cursor: pointer; font-size: 10px; display: none; font-weight: bold; }
+
+        footer {
+            text-align: center; padding: 40px; font-size: 12px; color: #777;
+            border-top: 1px solid #222; margin-top: 50px; background: rgba(0,0,0,0.8);
+        }
+
+        .location-tag { color: var(--main-color); font-weight: bold; margin-top: 10px; display: block; font-family: 'Orbitron'; }
+        
+        .counter-wrapper {
+            margin-top: 20px; display: inline-block; padding: 10px;
+            border: 1px solid var(--main-color); background: rgba(0,0,0,0.9);
+        }
+
+        [contenteditable="true"] { outline: 2px dashed var(--text-gold); padding: 5px; background: rgba(255,255,255,0.05); }
+    </style>
+</head>
+<body>
+
+<div class="admin-panel">
+    <button class="edit-btn" onclick="toggleEdit()">РЕДАКТИРОВАТЬ</button>
+    <div id="pro-tools" style="display: none;">
+        <button class="pro-btn" onclick="addCard()">+ НОВАЯ ЗАПИСЬ (ВВЕРХ)</button>
+        <button class="pro-btn" onclick="addTab()">+ НОВАЯ ВКЛАДКА</button>
+        <button class="pro-btn" onclick="setCustomBg()">СМЕНИТЬ ФОН</button>
+    </div>
+</div>
+
+<header>
+    <div class="logo" onclick="showTab(&#39;news&#39;)">STAR WARS <span>FOREVER</span></div>
+    <nav id="main-nav">
+        <button id="btn-news" class="active" onclick="showTab(&#39;news&#39;)">Новости</button>
+        <button id="btn-fanfics" onclick="showTab(&#39;fanfics&#39;)" class="">Фанфики</button>
+        <button id="btn-contacts" onclick="showTab(&#39;contacts&#39;)" class="">Контакты</button>
+    </nav>
+</header>
+
+<div class="container" id="main-container">
+    <div id="news" class="tab-content active">
+        <h1 style="font-family: &#39;Orbitron&#39;; color: var(--main-color);">Новости Голонета</h1><div class="card">
+            <span class="delete-card" style="display: none;" onclick="this.parentElement.remove()">[УДАЛИТЬ]</span>
+            <h3 contenteditable="false"><span style="font-size: medium; font-weight: 400;">Представлен обновлённый логотип второго сезона сериала&nbsp;</span><strong data-start="55" data-end="82" style="font-size: medium;">«Звёздные войны: Асока»</strong><span style="font-size: medium; font-weight: 400;">.</span></h3>
+            <p style="font-size: 12px; color: var(--text-gold)">Опубликовано: 03.01.2026</p>
+            <div contenteditable="false"><p data-start="0" data-end="83">Представлен обновлённый логотип второго сезона сериала <strong data-start="55" data-end="82">«Звёздные войны: Асока»</strong>.</p>
+<p data-start="85" data-end="297">2026 год обещает стать значимым для вселенной «Звёздных войн»: сериал <em data-start="155" data-end="163">Ahsoka</em> официально возвращается со вторым сезоном. Первые намёки на продолжение уже появились — и пришли они от исполнительницы главной роли.</p>
+<p data-start="299" data-end="521">Розарио Доусон опубликовала закулисное селфи в преддверии Нового года. На фото актриса запечатлена в куртке с новым логотипом второго сезона «Асоки», тем самым впервые продемонстрировав обновлённый фирменный стиль проекта.</p>
+<p data-start="523" data-end="727">Визуально эмблема почти полностью повторяет логотип первого сезона, созданный Lucasfilm. Главное отличие — крупная цифра «2», размещённая под названием сериала и подчёркивающая начало новой главы истории.</p>
+<p data-start="729" data-end="987">В целом подобный подход вполне характерен для франшизы: за редкими исключениями проекты «Звёздных войн» придерживаются единой стилистики в оформлении логотипов. Одним из немногих заметных отступлений от этого правила в последние годы стал фильм о Мандалорце.</p>
+<h3 data-start="989" data-end="1026">Когда выйдет второй сезон «Асоки»</h3>
+<p data-start="1028" data-end="1225">Точная дата премьеры продолжения пока остаётся неизвестной. Съёмки второго сезона завершились осенью 2025 года, однако Disney и Lucasfilm до сих пор не обозначили даже ориентировочные сроки выхода.</p>
+<p data-start="1227" data-end="1396">Известно, что в 2026 году количество проектов «Звёздных войн» с живыми актёрами будет ограниченным. Главным релизом станет полнометражный фильм <strong data-start="1371" data-end="1395">«Мандалорец и Грогу»</strong>.</p>
+<p data-start="1398" data-end="1606" data-is-last-node="" data-is-only-node="">В расписании Disney+ второй сезон «Асоки» пока не значится. Тем не менее одна из создательниц сериала ранее упоминала возможную премьеру в ноябре 2026 года. Не исключено, что именно эти планы остаются в силе.</p><p data-start="1398" data-end="1606" data-is-last-node="" data-is-only-node="">Источник: pluggedin<br></p></div>
+        </div><div class="card">
+            <span class="delete-card" style="display: none;" onclick="this.parentElement.remove()">[УДАЛИТЬ]</span>
+            <h3 contenteditable="false"><span style="font-size: medium; font-weight: 400;">Дейзи Ридли намекнула на выход «Звездных войн» о Кайло Рене</span></h3>
+            <p style="font-size: 12px; color: var(--text-gold)">Опубликовано: 03.01.2026</p>
+            <div contenteditable="false"><div><br></div><div>Дейзи Ридли, прославившаяся благодаря роли Рей в сиквельной трилогии «Звёздных войн», готовится вновь вернуться к этому образу в будущем фильме, посвящённом Новому ордену джедаев. Хотя о проекте по-прежнему почти ничего не известно, это не мешает актрисе активно делиться мыслями о легендарной франшизе.</div><div><br></div><div>В преддверии выхода нового проекта со своим участием Ридли дала несколько интервью. В беседе с журналом Parade актриса призналась, какой фильм оригинальной трилогии для неё самый любимый. По её словам, это «Новая надежда» — картина, с которой началась вся вселенная «Звёздных войн»:</div><div><br></div><div>«Это истоки всего. Великолепное начало, из которого родились все эти удивительные персонажи и сам мир».</div><div><br></div><div>В разговоре с The Hollywood Reporter Ридли также затронула тему отменённого фильма о Кайло Рене. Актриса дала понять, что знакома с ситуацией и не исключает, что сольный проект всё же может быть реализован:</div><div><br></div><div>«Да, я слышу разные разговоры. Я держу ушки на макушке».</div><div><br></div><div>Вернётся ли Рей?</div><div>На фоне множества слухов поклонники всё чаще задаются вопросом, состоится ли фильм «Звёздные войны: Новый орден джедаев». Несмотря на отсутствие конкретных новостей, Дейзи Ридли в интервью Parade подтвердила, что проект не отменён.</div><div><br></div><div>Сюжет картины должен развернуться спустя несколько лет после событий фильма «Скайуокер. Восход». В Lucasfilm пока не называют дату премьеры, однако такой временной задел позволяет создателям не спешить. Как отметила сама Ридли, фильм «выйдет тогда, когда будет готов — и ожидание того стоит».</div><div><br></div><div>Тем временем работа над другими проектами во вселенной «Звёздных войн» продолжается. Актриса призналась, что с большим интересом ждёт фильм «Звёздные войны: Звёздный истребитель» режиссёра Шона Леви. Съёмки картины уже завершены, а её премьера запланирована на 27 мая 2027 года.</div><div><br></div><div>Источник: pluggedin</div></div>
+        </div>
+        
+    </div>
+
+    <div id="fanfics" class="tab-content">
+        <h1 style="font-family: &#39;Orbitron&#39;; color: var(--sith-red);">Архив Фанфиков</h1>
+        <div class="card" style="border-left-color: var(--sith-red)">
+            <span class="delete-card" onclick="this.parentElement.remove()" style="display: none;">[УДАЛИТЬ]</span>
+            <h3>Шерр: путь во мрак</h3>
+            <div>— Проверим. Но сначала — отдых. Завтра будет день испытаний.</div>
+        </div>
+    </div>
+
+    <div id="contacts" class="tab-content">
+        <h1 style="font-family: &#39;Orbitron&#39;; color: var(--main-color);">Контакты</h1>
+        <div class="card">
+            <p>Instagram: <b>star_wars_almaty</b></p>
+            <p>Telegram: <a href="https://t.me/star_wars_forever205" style="color:var(--main-color)" target="_blank">Перейти в канал</a></p>
+        </div>
+    </div>
+</div>
+
+<footer>
+    <p>© Фан-проект Star Wars Forever</p>
+    <span class="location-tag">Алматы, Казахстан</span>
+    <div class="counter-wrapper">
+        <img src="./Star Wars Forever_files/counter.php" border="0">
+    </div>
+</footer>
+
+<script>
+    function showTab(tabId) {
+        document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+        document.querySelectorAll('nav button').forEach(b => b.classList.remove('active'));
+        const target = document.getElementById(tabId);
+        if(target) target.classList.add('active');
+        const btn = document.getElementById('btn-' + tabId);
+        if(btn) btn.classList.add('active');
+    }
+
+    let isEditing = false;
+    function toggleEdit() {
+        isEditing = !isEditing;
+        document.querySelectorAll('[contenteditable]').forEach(el => el.contentEditable = isEditing);
+        document.getElementById('pro-tools').style.display = isEditing ? 'block' : 'none';
+        document.querySelectorAll('.delete-card').forEach(d => d.style.display = isEditing ? 'block' : 'none');
+        const btn = document.querySelector('.edit-btn');
+        btn.innerText = isEditing ? "СОХРАНИТЬ" : "РЕДАКТИРОВАТЬ";
+        if(!isEditing) alert("Правки зафиксированы! Не забудь сохранить файл через Ctrl+S и закинуть на GitHub.");
+    }
+
+    function addCard() {
+        const active = document.querySelector('.tab-content.active');
+        if(!active) return;
+        const now = new Date().toLocaleDateString();
+        const card = document.createElement('div');
+        card.className = 'card';
+        card.innerHTML = `
+            <span class="delete-card" style="display:block" onclick="this.parentElement.remove()">[УДАЛИТЬ]</span>
+            <h3 contenteditable="true">Новый заголовок</h3>
+            <p style="font-size: 12px; color: var(--text-gold)">Опубликовано: ${now}</p>
+            <div contenteditable="true">Ваш текст здесь...</div>
+        `;
+        
+        // Вставляем карточку СРАЗУ ПОД заголовок h1
+        const title = active.querySelector('h1');
+        if (title) {
+            title.after(card);
+        } else {
+            active.prepend(card);
+        }
+    }
+
+    function addTab() {
+        const name = prompt("Название вкладки:");
+        if(!name) return;
+        const id = 'tab-' + Date.now();
+        const btn = document.createElement('button');
+        btn.id = 'btn-' + id; btn.innerText = name; btn.onclick = () => showTab(id);
+        document.getElementById('main-nav').appendChild(btn);
+        const div = document.createElement('div');
+        div.id = id; div.className = 'tab-content';
+        div.innerHTML = `<h1 style="color:var(--main-color)">${name}</h1><div class="card"><div contenteditable="true">Контент новой вкладки...</div></div>`;
+        document.getElementById('main-container').appendChild(div);
+    }
+
+    function setCustomBg() {
+        const url = prompt("Ссылка на изображение для фона:");
+        if(url) document.body.style.backgroundImage = `url('${url}')`;
+    }
+</script>
+
+</body></html>
