@@ -105,14 +105,14 @@
 <header>
     <div class="logo" onclick="showTab(&#39;news&#39;)">STAR WARS <span>FOREVER</span></div>
     <nav id="main-nav">
-        <button id="btn-news" class="active" onclick="showTab(&#39;news&#39;)">Новости</button>
-        <button id="btn-fanfics" onclick="showTab(&#39;fanfics&#39;)" class="">Фанфики</button>
+        <button id="btn-news" class="" onclick="showTab(&#39;news&#39;)">Новости</button>
+        <button id="btn-fanfics" onclick="showTab(&#39;fanfics&#39;)" class="active">Фанфики</button>
         <button id="btn-contacts" onclick="showTab(&#39;contacts&#39;)" class="">Контакты</button>
     </nav>
 </header>
 
 <div class="container" id="main-container">
-    <div id="news" class="tab-content active">
+    <div id="news" class="tab-content">
         <h1 style="font-family: &#39;Orbitron&#39;; color: var(--main-color);">Новости Голонета</h1><div class="card">
             <span class="delete-card" style="display: none;" onclick="this.parentElement.remove()">[УДАЛИТЬ]</span>
             <h3 contenteditable="false"><span style="font-size: medium; font-weight: 400;">Представлен обновлённый логотип второго сезона сериала&nbsp;</span><strong data-start="55" data-end="82" style="font-size: medium;">«Звёздные войны: Асока»</strong><span style="font-size: medium; font-weight: 400;">.</span></h3>
@@ -135,13 +135,14 @@
         
     </div>
 
-    <div id="fanfics" class="tab-content">
-        <h1 style="font-family: &#39;Orbitron&#39;; color: var(--sith-red);">Архив Фанфиков</h1>
-        <div class="card" style="border-left-color: var(--sith-red)">
-            <span class="delete-card" onclick="this.parentElement.remove()" style="display: none;">[УДАЛИТЬ]</span>
-            <h3>Шерр: путь во мрак</h3>
-            <div>— Проверим. Но сначала — отдых. Завтра будет день испытаний.</div>
+    <div id="fanfics" class="tab-content active">
+        <h1 style="font-family: &#39;Orbitron&#39;; color: var(--sith-red);">Архив Фанфиков</h1><div class="card">
+            <span class="delete-card" style="display: none;" onclick="this.parentElement.remove()">[УДАЛИТЬ]</span>
+            <h3 contenteditable="false">Вырезка из фанфика Шерр: путь мрака</h3>
+            <p style="font-size: 12px; color: var(--text-gold)">Опубликовано: 03.01.2026</p>
+            <div contenteditable="false"><div>Шерр слегка кивнул.</div><div><br></div><div>— Проверим. Но сначала — отдых. Завтра будет день испытаний.</div><div><br></div><div>— Смотрите как бы вы не провалили испытание. Позор запоминается дольше чем подвиг.&nbsp;</div><div><br></div><div>С притворной усмешкой выкинул смуглый худощавый Скордж. Он находился в компании двух алкоголиков перед которыми любил самоутверждаться своими достижениями. О его остром языке и хитроумии знали многие. Он не терпел когда кто то превосходил его в поприще охотника ища этому оправдания.&nbsp;</div><div><br></div><div>— Не бойся, твой позор помнят ещё в стенах бара и за его пределами как ты днями за макроном угнаться не мог.&nbsp;</div><div><br></div><div>Язвительно ответил Харт поставив завистливого индивида на место. Алмек и Грон усмехнулись.&nbsp;</div><div><br></div><div>И, глядя на Харта, Шерр уже знал: испытания будут не только физическими. В глубине его существа нарастало предчувствие: скоро наступит момент, когда мальчик столкнётся с тем, что изменит его навсегда. И от того, как он встретит этот момент, зависит многое.</div><div><br></div><div><br></div><div><br></div><div>Шерр, опершись локтем о стойку, медленно крутил в руке опустевшую кружку. Он наблюдал за общением друзей сдержанно, но с теплом. Словно кто-то стучался в его внутренний панцирь, и он не торопился открывать дверь, однако уже не мог игнорировать этот ритм. Эти охотники, их простой быт, вино и слава — всё это было далеко от холодных залов Храма джедаев, от безмолвных медитаций и тяжёлых решений Совета. И всё же… в этом был смысл. Настоящая, живая Сила, не в приказах и пророчествах, а в связи между людьми.&nbsp;</div><div><br></div><div><br></div><div><br></div><div>Продолжение следует…</div><div><br></div><div>Продолжение в ТГ канале https://t.me/star_wars_forever205</div></div>
         </div>
+        
     </div>
 
     <div id="contacts" class="tab-content">
