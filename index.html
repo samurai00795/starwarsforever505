@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<!-- saved from url=(0052)file:///C:/Users/Usr/Desktop/%D0%98%D0%98/index.html -->
+<html lang="ru"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Star Wars Forever</title>
+    <link href="./Star Wars Forever_files/css2" rel="stylesheet">
+    <style>
+        :root {
+            --force-blue: #00d4ff;
+            --sith-red: #ff003c;
+            --main-color: var(--force-blue);
+            --panel-bg: rgba(20, 20, 25, 0.95);
+            --text-gold: #ffe81f;
+        }
+
+        body {
+            background-color: #050507;
+            background-image: url("https://i.redd.it/pa2wq6w65po41.png");
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            color: #e0e0e0;
+            font-family: 'Exo 2', sans-serif;
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        header {
+            border-bottom: 2px solid var(--main-color);
+            padding: 20px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(17, 17, 17, 0.9);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo { font-family: 'Orbitron'; color: var(--text-gold); font-size: 24px; cursor: pointer; text-transform: uppercase; }
+        .logo span { color: var(--main-color); }
+
+        nav button {
+            background: none; border: none; color: var(--main-color);
+            font-family: 'Orbitron'; font-size: 14px; margin-left: 20px;
+            cursor: pointer; transition: 0.3s; text-transform: uppercase;
+        }
+
+        nav button.active { color: white; text-shadow: 0 0 10px var(--main-color); border-bottom: 2px solid white; }
+
+        .admin-panel {
+            position: fixed; bottom: 20px; right: 20px; z-index: 1000;
+            background: #222; padding: 15px; border: 1px solid var(--main-color); border-radius: 10px;
+            width: 220px;
+        }
+
+        .edit-btn {
+            background: var(--main-color); color: black; border: none; padding: 10px 15px;
+            font-weight: bold; cursor: pointer; font-family: 'Orbitron'; width: 100%;
+        }
+
+        #pro-tools { display: none; margin-top: 10px; background: #333; padding: 10px; border-radius: 5px; }
+        .pro-btn { background: #444; color: white; border: 1px solid #666; font-size: 9px; padding: 4px; cursor: pointer; margin: 2px; display: block; width: 95%; }
+
+        .container { max-width: 1200px; margin: 40px auto; padding: 0 20px; min-height: 60vh; }
+        .tab-content { display: none; }
+        .tab-content.active { display: block; animation: fadeIn 0.5s; }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+        .card {
+            background: var(--panel-bg); border: 1px solid #333; padding: 25px;
+            margin-bottom: 30px; border-left: 4px solid var(--main-color); position: relative;
+        }
+
+        .delete-card { position: absolute; top: 10px; right: 10px; color: #ff4757; cursor: pointer; font-size: 10px; display: none; font-weight: bold; }
+
+        footer {
+            text-align: center; padding: 40px; font-size: 12px; color: #777;
+            border-top: 1px solid #222; margin-top: 50px; background: rgba(0,0,0,0.8);
+        }
+
+        .location-tag { color: var(--main-color); font-weight: bold; margin-top: 10px; display: block; font-family: 'Orbitron'; }
+        
+        .counter-wrapper {
+            margin-top: 20px; display: inline-block; padding: 10px;
+            border: 1px solid var(--main-color); background: rgba(0,0,0,0.9);
+        }
+
+        [contenteditable="true"] { outline: 2px dashed var(--text-gold); padding: 5px; background: rgba(255,255,255,0.05); }
+    </style>
+</head>
+<body>
+
+<div class="admin-panel">
+    <button class="edit-btn" onclick="toggleEdit()">РЕДАКТИРОВАТЬ</button>
+    <div id="pro-tools" style="display: none;">
+        <button class="pro-btn" onclick="addCard()">+ НОВАЯ ЗАПИСЬ (ВВЕРХ)</button>
+        <button class="pro-btn" onclick="addTab()">+ НОВАЯ ВКЛАДКА</button>
+        <button class="pro-btn" onclick="setCustomBg()">СМЕНИТЬ ФОН</button>
+    </div>
+</div>
+
+<header>
+    <div class="logo" onclick="showTab(&#39;news&#39;)">STAR WARS <span>FOREVER</span></div>
+    <nav id="main-nav">
+        <button id="btn-news" class="active" onclick="showTab(&#39;news&#39;)">Новости</button>
+        <button id="btn-fanfics" onclick="showTab(&#39;fanfics&#39;)" class="">Фанфики</button>
+        <button id="btn-contacts" onclick="showTab(&#39;contacts&#39;)" class="">Контакты</button>
+    </nav>
+</header>
+
+<div class="container" id="main-container">
+    <div id="news" class="tab-content active">
+        <h1 style="font-family: &#39;Orbitron&#39;; color: var(--main-color);">Новости Голонета</h1><div class="card">
+            <span class="delete-card" style="display: none;" onclick="this.parentElement.remove()">[УДАЛИТЬ]</span>
+            <h3 contenteditable="false"><h3 data-start="0" data-end="44">Кто может прийти на смену Кэтлин Кеннеди</h3></h3>
+            <p style="font-size: 12px; color: var(--text-gold)">Опубликовано: 11.01.2026</p>
+            <div contenteditable="false"><article class="text-token-text-primary w-full focus:outline-none [--shadow-height:45px] has-data-writing-block:pointer-events-none has-data-writing-block:-mt-(--shadow-height) has-data-writing-block:pt-(--shadow-height) [&amp;:has([data-writing-block])&gt;*]:pointer-events-auto scroll-mt-(--header-height)" tabindex="-1" dir="auto" data-turn-id="11d85793-ffc8-4fd1-a476-3be58e8a0fb7" data-testid="conversation-turn-7" data-scroll-anchor="false" data-turn="user"><div class="text-base my-auto mx-auto pt-12 [--thread-content-margin:--spacing(4)] @w-sm/main:[--thread-content-margin:--spacing(6)] @w-lg/main:[--thread-content-margin:--spacing(16)] px-(--thread-content-margin)"><div class="[--thread-content-max-width:40rem] @w-lg/main:[--thread-content-max-width:48rem] mx-auto max-w-(--thread-content-max-width) flex-1 group/turn-messages focus-visible:outline-hidden relative flex w-full min-w-0 flex-col" tabindex="-1"><div class="flex max-w-full flex-col grow"><div data-message-author-role="user" data-message-id="11d85793-ffc8-4fd1-a476-3be58e8a0fb7" dir="auto" class="min-h-8 text-message relative flex w-full flex-col items-end gap-2 text-start break-words whitespace-normal [.text-message+&amp;]:mt-1"><div class="flex w-full flex-col gap-1 empty:hidden items-end rtl:items-start"><div class="user-message-bubble-color corner-superellipse/1.1 relative rounded-[18px] px-4 py-1.5 data-[multiline]:py-3 max-w-[var(--user-chat-width,70%)]" data-multiline=""><div class="whitespace-pre-wrap"></div></div></div></div></div><div class="z-0 flex justify-end"></div></div></div></article><article class="text-token-text-primary w-full focus:outline-none [--shadow-height:45px] has-data-writing-block:pointer-events-none has-data-writing-block:-mt-(--shadow-height) has-data-writing-block:pt-(--shadow-height) [&amp;:has([data-writing-block])&gt;*]:pointer-events-auto scroll-mt-[calc(var(--header-height)+min(200px,max(70px,20svh)))]" tabindex="-1" dir="auto" data-turn-id="e8930c11-6092-44fe-828c-136fcd65b7d9" data-testid="conversation-turn-8" data-scroll-anchor="true" data-turn="assistant"><div class="text-base my-auto mx-auto pb-10 [--thread-content-margin:--spacing(4)] @w-sm/main:[--thread-content-margin:--spacing(6)] @w-lg/main:[--thread-content-margin:--spacing(16)] px-(--thread-content-margin)"><div class="[--thread-content-max-width:40rem] @w-lg/main:[--thread-content-max-width:48rem] mx-auto max-w-(--thread-content-max-width) flex-1 group/turn-messages focus-visible:outline-hidden relative flex w-full min-w-0 flex-col agent-turn" tabindex="-1"><div class="flex max-w-full flex-col grow"><div data-message-author-role="assistant" data-message-id="7946c290-c80b-48c2-971e-248b8769750b" dir="auto" class="min-h-8 text-message relative flex w-full flex-col items-end gap-2 text-start break-words whitespace-normal [.text-message+&amp;]:mt-1" data-message-model-slug="gpt-5-2"><div class="flex w-full flex-col gap-1 empty:hidden first:pt-[1px]"><div class="markdown prose dark:prose-invert w-full break-words light markdown-new-styling"><h3 data-start="0" data-end="44">На фоне затишья вокруг будущего Lucasfilm в индустрии появилась громкая и быстро разлетевшаяся новость. По информации Мэтью Беллони, опубликованной на сайте <strong data-start="203" data-end="216">Puck News</strong>, студия рассматривает новую модель управления: вместо одного президента у компании могут появиться сразу два сопредседателя. В числе основных кандидатов называются <strong data-start="381" data-end="396">Дэйв Филони</strong> и <strong data-start="399" data-end="417">Линвен Бреннан</strong>.<br></h3>
+<p data-start="420" data-end="806">Фигура Филони хорошо знакома поклонникам «Звёздных войн». Именно он стоял за ключевыми анимационными проектами франшизы и сериалом «Асока», став для многих фанатов символом «наследия Лукаса». Бреннан же находится по другую сторону креатива: до сих пор она занималась в Lucasfilm преимущественно производственными и управленческими вопросами, оставаясь вне поля зрения широкой аудитории.</p>
+<p data-start="808" data-end="1251">На фоне отсутствия других значимых новостей тема мгновенно захватила профильные СМИ и фанатские сообщества. Начался привычный разбор полётов. Кэтлин Кеннеди припомнили всё — отменённые проекты, кассовую неудачу «Соло» и противоречивую трилогию сиквелов. В адрес Филони звучит другая критика: отсутствие опыта в полнометражном кино и чрезмерная опора на ностальгию, старых героев и знакомые мотивы вместо создания по-настоящему новой вселенной.</p>
+<p data-start="1253" data-end="1482">В то же время нашлись и защитники действующего руководства. Так, издание <strong data-start="1326" data-end="1338">Collider</strong> напомнило о внушительном послужном списке Кеннеди и о том, что именно «Пробуждение Силы» в своё время установило внушительные кассовые рекорды.</p>
+<p data-start="1484" data-end="1914">Однако, если смотреть шире, все эти споры уже кажутся вторичными. «Звёздные войны» после ухода Джорджа Лукаса — это принципиально иная вселенная. Она может находить отклик у части зрителей, но той самой магии, которая однажды объединила миллионы фанатов вокруг далёкой-далёкой галактики, в прежнем виде уже не вернуть. По сути, это новые «Странные новые миры» — если заимствовать название у другой культовой франшизы, <em data-start="1902" data-end="1913">Star Trek</em>.</p>
+<p data-start="1916" data-end="2089">Несомненно, Lucasfilm выпустит ещё немало фильмов и сериалов. Но, скорее всего, это будет добротный развлекательный контент «на выходные» — посмотрел и забыл к понедельнику.</p>
+<p data-start="2091" data-end="2477">Что касается Дэйва Филони, то его талант к созданию ярких идей и многообещающих завязок сложно отрицать. Проблема в другом: он редко доводит свои замыслы до по-настоящему сильного финала. Начало увлекает, но во второй половине истории часто теряют темп и ясность. Достаточно вспомнить, сколько ожиданий было связано с Перидеей, Трауном и Эзрой — и насколько размытым оказался результат.</p>
+<p data-start="2479" data-end="2744">Впрочем, сегодня, пожалуй, даже самый могущественный творец вряд ли смог бы полностью спасти вселенную «Звёздных войн». Она слишком давно свернула с верного пути. Теоретически ситуацию могла бы изменить ещё одна перезагрузка, но вероятность такого шага крайне мала.</p>
+<p data-start="2746" data-end="3050" data-is-last-node="" data-is-only-node="">А если бы Lucasfilm всё же решилась на радикальные перемены, совет был бы прост: начать не с отдельных проектов, а с чёткого, продуманного глобального конфликта, вокруг которого можно выстраивать истории. Сейчас же франшиза напоминает пазл, который собирают вслепую — без исходной картинки перед глазами.</p><p data-start="2746" data-end="3050" data-is-last-node="" data-is-only-node="">Источник: centax.ru&nbsp;</p></div></div></div></div></div></div></article></div>
+        </div><div class="card">
+            <span class="delete-card" style="display: none;" onclick="this.parentElement.remove()">[УДАЛИТЬ]</span>
+            <h3 contenteditable="false"><span style="font-size: medium; font-weight: 400;">Представлен обновлённый логотип второго сезона сериала&nbsp;</span><strong data-start="55" data-end="82" style="font-size: medium;">«Звёздные войны: Асока»</strong><span style="font-size: medium; font-weight: 400;">.</span></h3>
+            <p style="font-size: 12px; color: var(--text-gold)">Опубликовано: 03.01.2026</p>
+            <div contenteditable="false"><p data-start="0" data-end="83">Представлен обновлённый логотип второго сезона сериала <strong data-start="55" data-end="82">«Звёздные войны: Асока»</strong>.</p>
+<p data-start="85" data-end="297">2026 год обещает стать значимым для вселенной «Звёздных войн»: сериал <em data-start="155" data-end="163">Ahsoka</em> официально возвращается со вторым сезоном. Первые намёки на продолжение уже появились — и пришли они от исполнительницы главной роли.</p>
+<p data-start="299" data-end="521">Розарио Доусон опубликовала закулисное селфи в преддверии Нового года. На фото актриса запечатлена в куртке с новым логотипом второго сезона «Асоки», тем самым впервые продемонстрировав обновлённый фирменный стиль проекта.</p>
+<p data-start="523" data-end="727">Визуально эмблема почти полностью повторяет логотип первого сезона, созданный Lucasfilm. Главное отличие — крупная цифра «2», размещённая под названием сериала и подчёркивающая начало новой главы истории.</p>
+<p data-start="729" data-end="987">В целом подобный подход вполне характерен для франшизы: за редкими исключениями проекты «Звёздных войн» придерживаются единой стилистики в оформлении логотипов. Одним из немногих заметных отступлений от этого правила в последние годы стал фильм о Мандалорце.</p>
+<h3 data-start="989" data-end="1026">Когда выйдет второй сезон «Асоки»</h3>
+<p data-start="1028" data-end="1225">Точная дата премьеры продолжения пока остаётся неизвестной. Съёмки второго сезона завершились осенью 2025 года, однако Disney и Lucasfilm до сих пор не обозначили даже ориентировочные сроки выхода.</p>
+<p data-start="1227" data-end="1396">Известно, что в 2026 году количество проектов «Звёздных войн» с живыми актёрами будет ограниченным. Главным релизом станет полнометражный фильм <strong data-start="1371" data-end="1395">«Мандалорец и Грогу»</strong>.</p>
+<p data-start="1398" data-end="1606" data-is-last-node="" data-is-only-node="">В расписании Disney+ второй сезон «Асоки» пока не значится. Тем не менее одна из создательниц сериала ранее упоминала возможную премьеру в ноябре 2026 года. Не исключено, что именно эти планы остаются в силе.</p><p data-start="1398" data-end="1606" data-is-last-node="" data-is-only-node="">Источник: pluggedin<br></p></div>
+        </div><div class="card">
+            <span class="delete-card" style="display: none;" onclick="this.parentElement.remove()">[УДАЛИТЬ]</span>
+            <h3 contenteditable="false"><span style="font-size: medium; font-weight: 400;">Дейзи Ридли намекнула на выход «Звездных войн» о Кайло Рене</span></h3>
+            <p style="font-size: 12px; color: var(--text-gold)">Опубликовано: 03.01.2026</p>
+            <div contenteditable="false"><div><br></div><div>Дейзи Ридли, прославившаяся благодаря роли Рей в сиквельной трилогии «Звёздных войн», готовится вновь вернуться к этому образу в будущем фильме, посвящённом Новому ордену джедаев. Хотя о проекте по-прежнему почти ничего не известно, это не мешает актрисе активно делиться мыслями о легендарной франшизе.</div><div><br></div><div>В преддверии выхода нового проекта со своим участием Ридли дала несколько интервью. В беседе с журналом Parade актриса призналась, какой фильм оригинальной трилогии для неё самый любимый. По её словам, это «Новая надежда» — картина, с которой началась вся вселенная «Звёздных войн»:</div><div><br></div><div>«Это истоки всего. Великолепное начало, из которого родились все эти удивительные персонажи и сам мир».</div><div><br></div><div>В разговоре с The Hollywood Reporter Ридли также затронула тему отменённого фильма о Кайло Рене. Актриса дала понять, что знакома с ситуацией и не исключает, что сольный проект всё же может быть реализован:</div><div><br></div><div>«Да, я слышу разные разговоры. Я держу ушки на макушке».</div><div><br></div><div>Вернётся ли Рей?</div><div>На фоне множества слухов поклонники всё чаще задаются вопросом, состоится ли фильм «Звёздные войны: Новый орден джедаев». Несмотря на отсутствие конкретных новостей, Дейзи Ридли в интервью Parade подтвердила, что проект не отменён.</div><div><br></div><div>Сюжет картины должен развернуться спустя несколько лет после событий фильма «Скайуокер. Восход». В Lucasfilm пока не называют дату премьеры, однако такой временной задел позволяет создателям не спешить. Как отметила сама Ридли, фильм «выйдет тогда, когда будет готов — и ожидание того стоит».</div><div><br></div><div>Тем временем работа над другими проектами во вселенной «Звёздных войн» продолжается. Актриса призналась, что с большим интересом ждёт фильм «Звёздные войны: Звёздный истребитель» режиссёра Шона Леви. Съёмки картины уже завершены, а её премьера запланирована на 27 мая 2027 года.</div><div><br></div><div>Источник: pluggedin</div></div>
+        </div>
+        
+    </div>
+
+    <div id="fanfics" class="tab-content">
+        <h1 style="font-family: &#39;Orbitron&#39;; color: var(--sith-red);">Архив Фанфиков</h1><div class="card">
+            <span class="delete-card" style="display: none;" onclick="this.parentElement.remove()">[УДАЛИТЬ]</span>
+            <h3 contenteditable="false">Вырезка из фанфика Шерр: путь мрака</h3>
+            <p style="font-size: 12px; color: var(--text-gold)">Опубликовано: 03.01.2026</p>
+            <div contenteditable="false"><div>Шерр слегка кивнул.</div><div><br></div><div>— Проверим. Но сначала — отдых. Завтра будет день испытаний.</div><div><br></div><div>— Смотрите как бы вы не провалили испытание. Позор запоминается дольше чем подвиг.&nbsp;</div><div><br></div><div>С притворной усмешкой выкинул смуглый худощавый Скордж. Он находился в компании двух алкоголиков перед которыми любил самоутверждаться своими достижениями. О его остром языке и хитроумии знали многие. Он не терпел когда кто то превосходил его в поприще охотника ища этому оправдания.&nbsp;</div><div><br></div><div>— Не бойся, твой позор помнят ещё в стенах бара и за его пределами как ты днями за макроном угнаться не мог.&nbsp;</div><div><br></div><div>Язвительно ответил Харт поставив завистливого индивида на место. Алмек и Грон усмехнулись.&nbsp;</div><div><br></div><div>И, глядя на Харта, Шерр уже знал: испытания будут не только физическими. В глубине его существа нарастало предчувствие: скоро наступит момент, когда мальчик столкнётся с тем, что изменит его навсегда. И от того, как он встретит этот момент, зависит многое.</div><div><br></div><div><br></div><div><br></div><div>Шерр, опершись локтем о стойку, медленно крутил в руке опустевшую кружку. Он наблюдал за общением друзей сдержанно, но с теплом. Словно кто-то стучался в его внутренний панцирь, и он не торопился открывать дверь, однако уже не мог игнорировать этот ритм. Эти охотники, их простой быт, вино и слава — всё это было далеко от холодных залов Храма джедаев, от безмолвных медитаций и тяжёлых решений Совета. И всё же… в этом был смысл. Настоящая, живая Сила, не в приказах и пророчествах, а в связи между людьми.&nbsp;</div><div><br></div><div><br></div><div><br></div><div>Продолжение следует…</div><div><br></div><div>Продолжение в ТГ канале https://t.me/star_wars_forever205</div></div>
+        </div>
+        
+    </div>
+
+    <div id="contacts" class="tab-content">
+        <h1 style="font-family: &#39;Orbitron&#39;; color: var(--main-color);">Контакты</h1>
+        <div class="card">
+            <p>Instagram: <b>star_wars_almaty</b></p>
+            <p>Telegram: <a href="https://t.me/star_wars_forever205" style="color:var(--main-color)" target="_blank">Перейти в канал</a></p>
+        </div>
+    </div>
+</div>
+
+<footer>
+    <p>© Фан-проект Star Wars Forever</p>
+    <span class="location-tag">Алматы, Казахстан</span>
+    <div class="counter-wrapper">
+        <img src="./Star Wars Forever_files/counter.php" border="0">
+    </div>
+</footer>
+
+<script>
+    function showTab(tabId) {
+        document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+        document.querySelectorAll('nav button').forEach(b => b.classList.remove('active'));
+        const target = document.getElementById(tabId);
+        if(target) target.classList.add('active');
+        const btn = document.getElementById('btn-' + tabId);
+        if(btn) btn.classList.add('active');
+    }
+
+    let isEditing = false;
+    function toggleEdit() {
+        isEditing = !isEditing;
+        document.querySelectorAll('[contenteditable]').forEach(el => el.contentEditable = isEditing);
+        document.getElementById('pro-tools').style.display = isEditing ? 'block' : 'none';
+        document.querySelectorAll('.delete-card').forEach(d => d.style.display = isEditing ? 'block' : 'none');
+        const btn = document.querySelector('.edit-btn');
+        btn.innerText = isEditing ? "СОХРАНИТЬ" : "РЕДАКТИРОВАТЬ";
+        if(!isEditing) alert("Правки зафиксированы! Не забудь сохранить файл через Ctrl+S и закинуть на GitHub.");
+    }
+
+    function addCard() {
+        const active = document.querySelector('.tab-content.active');
+        if(!active) return;
+        const now = new Date().toLocaleDateString();
+        const card = document.createElement('div');
+        card.className = 'card';
+        card.innerHTML = `
+            <span class="delete-card" style="display:block" onclick="this.parentElement.remove()">[УДАЛИТЬ]</span>
+            <h3 contenteditable="true">Новый заголовок</h3>
+            <p style="font-size: 12px; color: var(--text-gold)">Опубликовано: ${now}</p>
+            <div contenteditable="true">Ваш текст здесь...</div>
+        `;
+        
+        // Вставляем карточку СРАЗУ ПОД заголовок h1
+        const title = active.querySelector('h1');
+        if (title) {
+            title.after(card);
+        } else {
+            active.prepend(card);
+        }
+    }
+
+    function addTab() {
+        const name = prompt("Название вкладки:");
+        if(!name) return;
+        const id = 'tab-' + Date.now();
+        const btn = document.createElement('button');
+        btn.id = 'btn-' + id; btn.innerText = name; btn.onclick = () => showTab(id);
+        document.getElementById('main-nav').appendChild(btn);
+        const div = document.createElement('div');
+        div.id = id; div.className = 'tab-content';
+        div.innerHTML = `<h1 style="color:var(--main-color)">${name}</h1><div class="card"><div contenteditable="true">Контент новой вкладки...</div></div>`;
+        document.getElementById('main-container').appendChild(div);
+    }
+
+    function setCustomBg() {
+        const url = prompt("Ссылка на изображение для фона:");
+        if(url) document.body.style.backgroundImage = `url('${url}')`;
+    }
+</script>
+
+</body></html>
