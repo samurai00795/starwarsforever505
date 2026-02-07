@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="ru">
-<head>
-    <meta charset="UTF-8">
+<!-- saved from url=(0039)file:///C:/Users/Usr/Desktop/Index.html -->
+<html lang="ru"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Star Wars Forever</title>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Exo+2:ital,wght@0,300;0,600;1,300;1,600&display=swap" rel="stylesheet">
+    <link href="./Star Wars Forever_files/css2" rel="stylesheet">
     <style>
         :root {
             --force-blue: #00d4ff;
@@ -113,7 +113,7 @@
 
 <div class="admin-panel">
     <button class="edit-btn" onclick="toggleEdit()">РЕДАКТИРОВАТЬ</button>
-    <div id="pro-tools">
+    <div id="pro-tools" style="display: none;">
         <button class="pro-btn" onclick="addCard()">+ НОВАЯ ЗАПИСЬ (ВВЕРХ)</button>
         <button class="pro-btn" onclick="addTab()">+ НОВАЯ ВКЛАДКА</button>
         <button class="pro-btn" onclick="setCustomBg()">СМЕНИТЬ ФОН</button>
@@ -121,60 +121,47 @@
 </div>
 
 <header>
-    <div class="logo" onclick="showTab('news')">STAR WARS <span>FOREVER</span></div>
+    <div class="logo" onclick="showTab(&#39;news&#39;)">STAR WARS <span>FOREVER</span></div>
     <nav id="main-nav">
-        <button id="btn-news" class="active" onclick="showTab('news')">Новости</button>
-        <button id="btn-fanfics" onclick="showTab('fanfics')">Фанфики</button>
-        <button id="btn-contacts" onclick="showTab('contacts')">Контакты</button>
+        <button id="btn-news" class="active" onclick="showTab(&#39;news&#39;)">Новости</button>
+        <button id="btn-fanfics" onclick="showTab(&#39;fanfics&#39;)" class="">Фанфики</button>
+        <button id="btn-contacts" onclick="showTab(&#39;contacts&#39;)">Контакты</button>
     </nav>
 </header>
 
 <div class="container" id="main-container">
     <div id="news" class="tab-content active">
-        <h1 style="color: var(--main-color);">Новости Голонета</h1>
+        <h1 style="color: var(--main-color);">Новости Голонета</h1><div class="card">
+            <span class="delete-card" style="display: none;" onclick="this.parentElement.remove()">[УДАЛИТЬ]</span>
+            <h3 contenteditable="false"></h3><h3 data-start="0" data-end="48">ГДЕ РЕКЛАМНАЯ КАМПАНИЯ «МАНДАЛОРЦА И ГРОГУ»?</h3>
+            <p style="font-size: 12px; color: var(--text-gold)">Опубликовано: 07.02.2026</p>
+            <div contenteditable="false"><h3 data-start="0" data-end="48"><span style="font-family: &quot;Exo 2&quot;, sans-serif;">Фильм </span><strong data-start="56" data-end="80" style="font-family: &quot;Exo 2&quot;, sans-serif;">«Мандалорец и Грогу»</strong><span style="font-family: &quot;Exo 2&quot;, sans-serif;">, премьера которого намечена на май, станет первым полнометражным проектом во вселенной «Звёздных войн» за последние шесть лет. Однако до выхода остаётся всего четыре месяца, а масштабной маркетинговой кампании до сих пор не видно — и это вызывает удивление у журналистов </span><strong data-start="352" data-end="366" style="font-family: &quot;Exo 2&quot;, sans-serif;">ScreenRant</strong><span style="font-family: &quot;Exo 2&quot;, sans-serif;">.</span><br></h3>
+<p data-start="369" data-end="719">Автор издания Катал Ганнинг отмечает, что предстоящий релиз пока не выглядит как значимое культурное событие, каким традиционно становился каждый новый фильм франшизы. «Звёздные войны» остаются одной из самых влиятельных научно-фантастических серий в истории кино, поэтому почти полное отсутствие продвижения на столь позднем этапе кажется необычным.</p>
+<p data-start="721" data-end="1220">По мнению обозревателя, опубликованный трейлер не произвёл сильного впечатления и мало отличается от того, что зрители уже видели в сериале «Мандалорец». Складывается ощущение, будто решение о создании фильма приняли в последний момент. К тому же интерес аудитории к персонажу постепенно ослаб, а пик популярности Грогу пришёлся на 2020–2022 годы. Остаётся открытым вопрос, смогут ли новые приключения Дина Джарина вновь привлечь внимание зрителей — возможно, даже в Disney пока не уверены в ответе.</p>
+<p data-start="1222" data-end="1475">Существует и мнение, что Lucasfilm и Disney не делают на картину серьёзную ставку, рассматривая её скорее как способ заполнить паузу в графике релизов. В таком случае умеренные ожидания по кассовым сборам могут объяснять сдержанный подход к продвижению.</p>
+<p data-start="1477" data-end="1778" data-is-last-node="" data-is-only-node="">Впрочем, у Disney есть своя стратегия: студия нередко начинает активную рекламную кампанию всего за один-два месяца до премьеры. Возможно, именно поэтому вокруг фильма пока не наблюдается привычного ажиотажа — хотя раньше проекты «Звёздных войн» сопровождались куда более громким информационным шумом.</p></div>
+        </div>
         
-        <div class="card">
-            <span class="delete-card" onclick="this.parentElement.remove()">[УДАЛИТЬ]</span>
-            <h3>Lucasfilm меняет курс «Звёздных войн»?</h3>
-            <p style="font-size: 12px; color: var(--text-gold)">Опубликовано: 31.01.2026</p>
-            <div>
-                <p>Инсайдер Дэниел Рихтман сообщает, что масштабный кроссовер по вселенной «Мандалорца» может быть серьёзно переработан. Lucasfilm якобы решила отказаться от идеи полнометражного кроссовера в пользу короткого сериала для Disney+.</p>
-                <p>Источник: centax.ru</p>
-            </div>
-        </div>
+        
 
-        <div class="card">
-            <span class="delete-card" onclick="this.parentElement.remove()">[УДАЛИТЬ]</span>
-            <h3>Кто может прийти на смену Кэтлин Кеннеди</h3>
-            <p style="font-size: 12px; color: var(--text-gold)">Опубликовано: 11.01.2026</p>
-            <div>
-                <p>По информации Puck News, студия рассматривает новую модель управления: вместо одного президента у компании могут появиться сопредседатели. В числе кандидатов — Дэйв Филони и Линвен Бреннан.</p>
-                <p>Источник: centax.ru</p>
-            </div>
-        </div>
+        
 
-        <div class="card">
-            <span class="delete-card" onclick="this.parentElement.remove()">[УДАЛИТЬ]</span>
-            <h3>Обновлённый логотип 2 сезона «Асоки»</h3>
-            <p style="font-size: 12px; color: var(--text-gold)">Опубликовано: 03.01.2026</p>
-            <div>
-                <p>Розарио Доусон показала новый логотип с крупной цифрой «2». Премьера возможна в ноябре 2026 года.</p>
-                <p>Источник: pluggedin</p>
-            </div>
-        </div>
+        
     </div>
 
     <div id="fanfics" class="tab-content">
-        <h1 style="color: var(--sith-red);">Архив Фанфиков</h1>
-        <div class="card">
-            <span class="delete-card" onclick="this.parentElement.remove()">[УДАЛИТЬ]</span>
-            <h3>◈ Глава 2: Шепот инстинкта ◈</h3>
-            <p style="font-size: 12px; color: var(--text-gold)">Опубликовано: 24.01.2026</p>
-            <div>
-                <p>Шерр прощупал пространство Силой... Незримая волна отбросила маккрона на несколько метров. "Всполохи Силы. Наконец-то они начали проявляться в тебе", — сказал Шерр Харту.</p>
-                <p>Подробности в ТГ: https://t.me/star_wars_forever205</p>
-            </div>
+        <h1 style="color: var(--sith-red);">Архив Фанфиков</h1><div class="card">
+            <span class="delete-card" style="display: none;" onclick="this.parentElement.remove()">[УДАЛИТЬ]</span>
+            <h3 contenteditable="false"><span style="font-family: &quot;Exo 2&quot;, sans-serif; font-size: medium; font-weight: 400; letter-spacing: normal; text-transform: none;">◈ Глава 2: Шепот инстинкта◈</span></h3>
+            <p style="font-size: 12px; color: var(--text-gold)">Опубликовано: 07.02.2026</p>
+            <div contenteditable="false"><div>Утренняя заря обдавала остывшую за ночь землю палящими лучами солнца. Небесное светило пробуждало природу ото сна: манящий речитатив птиц ласкал слух охотников, а животные, уловив ритм нового дня, осторожно выбирались из своих укрытий. Лёгкий туман, стелющийся в низинах, медленно рассеивался под натиском света, открывая взору холмы, густо поросшие кустарником<br></div><div><br></div><div>Они держали путь к горному ущелью. Шерр преспокойно ступал по охлажденной за ночь земле в предвкушении очередной добычи. Позади него шел Алмек в судорожных оглядках по сторонам в надежде сыскать макрона - ящероподобного хищника с примесью крокодиловых признаков. Довершал цепочку охотников юный но прыткий Харт - всю дорогу его снедало любопытство наравне с волнением от предстоящей охоты. Шерр спиной ощущал бурю эмоций, то как она раздирала его изнутри. И лишь искра способна разжечь торнадо в юношеской задорности став отправной точкой на пути к истинному могуществу. И Шерр собирался ее зажечь.&nbsp;</div><div><br></div><div>Продолжение следует в мой Телеграм канале - https://t.me/star_wars_forever205<br></div></div>
+        </div><div class="card">
+            <span class="delete-card" style="display: none;" onclick="this.parentElement.remove()">[УДАЛИТЬ]</span>
+            <h3 contenteditable="false"><span style="font-family: &quot;Exo 2&quot;, sans-serif; font-size: medium; font-weight: 400; letter-spacing: normal; text-transform: none;">&nbsp;◈ Глава 1: Шаг из пепла ◈</span><br></h3>
+            <p style="font-size: 12px; color: var(--text-gold)">Опубликовано: 07.02.2026</p>
+            <div contenteditable="false"><div>&nbsp;◈ Глава 1: Шаг из пепла ◈<br></div><div>На планете Танабис, среди песков и ветров, которые шептали о старых временах, Шерр стоял на краю утеса, глядя на горизонт. Поселение охотников и его новый дом служили постоянным напоминанием о том, что он оставил позади. Путь, который он выбрал, был сложным и опасным, но Шерр чувствовал, что находит себя в новой для него реальности.&nbsp;</div><div><br></div><div>Он вспомнил о своих годах в Ордене. Как юный падаван, он учился с рвением, погружаясь в философию джедаев и их предания. Но с каждым годом его дух становился все более угнетенным. Он помнил, как в битвах с осколками Империи его руки были связаны приказами Совета. «Почему мы не можем закончить это раз и навсегда?» — спрашивал он себя, когда израненные мирные жители обращались к ним за помощью.</div><div><br></div><div>Шерр глубоко вздохнул, ощущая жаркие ветры Танабиса, которые напоминали о жизни и смерти, о пути, который он выбрал. Здесь, среди песков и камней, он мог оставить позади былые сомнения. Он знал, что здесь, на этой жестокой и необузданной планете, он может найти нового ученика — того, кто станет его преемником, и, возможно, тем, кто изменит судьбу. Но прежде чем найти его, ему нужно было почувствовать этот мир, найти в нём то, что он искал.</div><div><br></div><div>Продолжение следует в мой Телеграм канале - https://t.me/star_wars_forever205&nbsp;<br></div></div>
         </div>
+        
     </div>
 
     <div id="contacts" class="tab-content">
@@ -246,5 +233,5 @@
         if(url) document.body.style.backgroundImage = `url('${url}')`;
     }
 </script>
-</body>
-</html>
+
+</body></html>
